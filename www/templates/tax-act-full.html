@@ -1,0 +1,29 @@
+<ion-view view-title="{{(taxActFull[0].collection == 597) ? 'Income Tax Act' : 'Tax Administration Act '}}" drag-content="false">
+
+
+
+
+
+
+  <ion-content class="has-subheader" scrollbar-y="false" overflow-scroll="true">
+
+
+<div id="actDiv" style="">
+
+
+    <p class="item tax-act-item item-text-wrap selectable" style="white-space: normal;" collection-repeat="post in taxActFull | limitTo:taxActFull.length-1:1" item-width="100%" item-height="getItemHeight(post.post_content)" bind-html-compile="post.post_content">
+
+</div>
+
+
+
+
+
+
+
+
+      <p class="item tax-act-item item-text-wrap" id="dummyItem" style="visibility:hidden;position:absolute">
+
+      </p>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,30 @@
+<div class="card" style="padding:15px">
+<p>
+  In order to obtain your 20% SAIT membership discount on this app, please complete and submit the information below.
+</p>
+<div class = "list">
+ <label class = "item item-input item-stacked-label">
+   <span class = "input-label"><b>SAIT promo code:</b> </span>
+    <input type = "text" placeholder = "" ng-model="promoCode" autocapitalize="off" />
+ </label>
+
+ <label class = "item item-input item-stacked-label" style="border-bottom: 1px solid #ddd;">
+   <span class = "input-label" ><b>YOUR e-mail address:</b></span>
+    <input type = "text" placeholder = "" ng-model="promoEmail" autocapitalize="off" />
+ </label>
+
+
+</div>
+<p><b>Please note:</b> you will still receive a 30 day free trial with this subscription
+   and can cancel your subscription at any time during the 30 day free trial period.
+   You will not be charged for the app during the 30 day free trial period.
+    You will be charged for the app only after the 30 day free trial period has expired.
+    After the expiry of the 30 day free trial period,
+    the amount you will be charged will be <b>R{{discountPrice}}</b> (i.e. R{{initialPrice}} less 20% SAIT membership discount).</p>
+    <p>Tap below:</p>
+       <button ng-if="!promoCodeApproved" ng-click="submitSAITDiscount(promoCode,promoEmail)" class="button button-block button-balanced button-condensed">Submit information above and check-out</button>
+       <button ng-if="promoCodeApproved"  ng-click="subscribe(discountProduct)" class="button button-block button-positive button-condensed">
+         Yearly subscription – 20% off first year
+       </button>
+
+</div>

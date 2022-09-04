@@ -1,0 +1,18 @@
+<ion-list can-swipe="false">
+
+        <ion-item ng-repeat="note in sectionNotes track by $index" class="item item-text-wrap item-button-right">
+          <div ng-class="isItemShown(note) ? 'item-expand active' : 'item-expand inactive'">
+            <h2>{{ note.title }}</h2>
+            <p ng-bind-html="note.content"></p>
+          </div>
+          <div ng-click="toggleItem(note)" class="item-expand-footer">
+            <i ng-class="isItemShown(note) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+            {{ isItemShown(note) ? 'Less' : 'More' }}
+          </div>
+<div class="buttons">
+                      <button class="button button-stable icon ion-edit" ng-click="editNote(note,$index)"></button>
+                      <button class="button button-assertive icon ion-trash-a" ng-click="deleteNote(note.id,$index)"></button>
+</div>
+        </ion-item>
+
+      </ion-list>

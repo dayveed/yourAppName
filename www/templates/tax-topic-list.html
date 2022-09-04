@@ -1,0 +1,58 @@
+<ion-view view-title="{{taxTopicTitle}}" id="my-stocks">
+  <ion-nav-bar id="stock-navbar" class="ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+
+  </ion-nav-buttons>
+  <div class="bar bar-subheader bar-search bar-dark item-input-inset">
+
+    <div class="item-input-wrapper search-input">
+
+        <i class="ion-ios-search-strong placeholder-icon light"></i>
+
+        <input
+
+
+        ng-model-options="{allowInvalid:true}"
+        type="text"
+        placeholder="Search Tax Topics..."
+        ng-model="searchText"
+
+
+
+
+
+
+        >
+
+
+    </div>
+  </div>
+
+  <ion-content class="has-search-subheader ">
+
+    <div class="row row-center"  ng-show="!taxTopics" ng-hide="taxTopics">
+      <div class="col">
+        <ion-spinner class="spinner-dark margin-auto" icon="ripple"></ion-spinner>
+      </div>
+    </div>
+    <ion-list >
+      <!--<ion-item style="color:purple">Search for a tax topic in the search tool above</ion-item>-->
+      <ion-item ng-repeat="topic in taxTopics | filter:searchText  " >
+
+        <div class="row row-center" ng-bind-html="topic.name" ng-click="goToTaxTopic(topic.term_id,topic.name,parentName)" >
+
+
+        </div>
+
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,34 @@
+<ion-view view-title="Tax Act Index" id="my-stocks">
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="modalService.openModal(1)">
+      <i class="icon icon-small ion-ios-search"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="getMyStocksData()"
+    class="margin-auto"
+    >
+
+    </ion-refresher>
+    <div class="row row-center"  ng-show="!taxActCats" ng-hide="taxActCats">
+      <div class="col">
+        <ion-spinner class="spinner-dark margin-auto" icon="ripple"></ion-spinner>
+      </div>
+    </div>
+    <ion-list>
+      <ion-item ng-repeat="cat in taxActCats track by $index" >
+
+        <div class="row row-center" ng-bind-html="cat.name" ng-click="cat.has_children ? goToTaxActIndex({{cat.term_id}}) : goToTaxPostsIndex({{cat.term_id}})">
+
+
+        </div>
+
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

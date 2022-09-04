@@ -1,0 +1,158 @@
+  <ion-view view-title="Briefcase name: {{briefcaseName}}" drag-content="false">
+
+  <ion-nav-bar id="stock-navbar" class="bar-orange ng-style:reactiveColor" >
+    <ion-nav-back-button style="color:black"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+        <button class="button" ng-click="printBriefcaseContents()">Print</button>
+  </ion-nav-buttons>
+
+
+
+
+  <ion-content class="has-subheader" scrollbar-y="false">
+    <div class="card" id="stock-notes">
+      <div class="item item-divider">Notes <span class="add-stock-note"  ng-click="addNote()"><b>Add Note </b><i class="icon ion-ios-plus"></i></span></div>
+      <a class="item item-icon-right" ng-repeat="note in briefcaseNotes track by $index" ng-click="editNote(note,$index)">
+        <h2>{{note.title}}</h2>
+        <h6>{{note.date_added | date: 'M/d/yy'}}</h6>
+        <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteNote(note.id,$index)" ion-stop-event="click"></button>
+      </a>
+    </div>
+
+    <div class="card" id="stock-notes">
+      <div class="item item-divider">Drawings<span class="add-stock-note"  ng-click="addDrawing()"><b>Add Drawing </b><i class="icon ion-ios-plus"></i></span></div>
+      <a class="item item-icon-right" ng-repeat="drawing in briefcaseDrawings" >
+        <h2 ng-click="openDrawing($index,drawing.title, drawing.content)">{{drawing.title}}</h2>
+<button class="button button-assertive button-small icon ion-trash-a" ng-click="removeDrawing(drawing.id,$index)"></button>
+
+      </a>
+
+    </div>
+    <div ng-if="briefcaseDefinitions.length > 0" class="card" id="stock-notes">
+      <div class="item item-divider">Definitions</div>
+      <a class="item item-icon-right" ng-repeat="section in briefcaseDefinitions track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+        <h2>{{section.post_title}}</h2>
+        <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseDefinitions)" ion-stop-event="click"></button>
+      </a>
+    </div>
+      <div ng-if="briefcaseITASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the Income Tax Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseITASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+          <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseITASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div  ng-if="briefcaseParagraphs.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Paragraphs of Schedules</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseParagraphs track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+          <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseParagraphs)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseTAASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the Tax Administration Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseTAASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseTAASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseVATASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the VAT Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseVATASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseVATASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseCEASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the Customs and Excise Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseCEASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseCEASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseEDASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the Estate Duty Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseEDASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseEDASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseTDASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the Transfer Duty Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseTDASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseTDASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseSTTASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the Securities Transfer Tax Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseSTTASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseSTTASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseMPRASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the MPRR Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseMPRASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseMPRASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseMPRAASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the MPRRA Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseMPRAASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseMPRAASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseETISections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the Employees Tax Incentive Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseETISections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseETISections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseCTASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the Carbon Tax Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseCTASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseCTASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseSTTAASections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the STT Administration Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseSTTAASections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseSTTAASections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseUIFSections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the UIF Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseUIFSections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseUIFSections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      <div ng-if="briefcaseSDLSections.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Sections of the Skills Development Levies Act</div>
+        <a class="item item-icon-right" ng-repeat="section in briefcaseSDLSections track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseSDLSections)" ion-stop-event="click"></button>
+        </a>
+      </div>
+      
+      <div ng-if="briefcaseOthers.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Other Information</div>
+        <a class="item item-icon-right" ng-repeat="other in briefcaseOthers track by $index" ng-click="goToOther(other.item_id,other.name,other.item_type)">
+          <h2>{{other.name}}</h2>
+            <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(other.item_id,$index,briefcaseOthers)" ion-stop-event="click"></button>
+        </a>
+      </div>
+
+
+
+    </ion-content>
+  </ion-view>

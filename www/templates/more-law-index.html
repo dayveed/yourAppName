@@ -1,0 +1,108 @@
+<ion-view view-title="More Law Index" id="my-stocks">
+  <ion-nav-bar id="stock-navbar" class="ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="modalService.openModal(1)">
+      <i class="icon icon-small ion-ios-search"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-subheader">
+
+
+    <ion-list ng-if="fullSubscriptionValid || (incomeSubscriptionValid && vatSubscriptionValid)">
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:21302,catID:2640})">
+          Employment Tax Incentive Act
+        </div>
+      </ion-item> 
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:21111,catID:2551})">
+          Mineral And Petroleum Resources Royalty Act
+        </div>
+      </ion-item> 
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:21115,catID:2575})">
+          Mineral And Petroleum Resources Royalty (Administration) Act
+        </div>
+      </ion-item> 
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:21107,catID:2604})">
+          Carbon Tax Act
+        </div>
+      </ion-item> 
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:15540,catID:1899})">
+          Securities Transfer Tax Act
+        </div>
+      </ion-item> 
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:21601,catID:2678})">
+          Securities Transfer Tax Administration Act
+        </div>
+      </ion-item> 
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:22802,catID:2719})">
+          Skills Development Levies Act
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:15357,catID:1846})">
+          Estate Duty Act
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:15497,catID:1876})">
+          Transfer Duty Act
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:21651,catID:2658})">
+          Unemployment Insurance Contributions Act
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.taxActPost({postID:9565,catID:598})">
+          Tax Administration Act
+        </div>
+      </ion-item>
+     
+
+    </ion-list>
+
+    <ion-list ng-if="incomeSubscriptionValid && !fullSubscriptionValid && !vatSubscriptionValid">
+        <ion-item>
+          <div class="row row-center"  ui-sref="app.taxTopicList({parentName:'Tax topics',taxTopicTitle:'Income Tax Topics'})">
+            Income Tax Topics
+          </div>
+        </ion-item>
+        <ion-item>
+          <div class="row row-center"  ng-click="openLockedPopup()">
+               VAT Topics &nbsp;<i style="font-size:larger;" class="icon ion-locked" class="locked"></i>
+          </div>
+        </ion-item>
+  
+      </ion-list>
+
+      <ion-list ng-if="!fullSubscriptionValid && !incomeSubscriptionValid && vatSubscriptionValid">
+         
+          <ion-item>
+            <div class="row row-center"  ui-sref="app.taxTopicList({parentName:'VAT topics',taxTopicTitle:'VAT Topics'})">
+              VAT Topics
+            </div>
+          </ion-item>
+          <ion-item>
+              <div class="row row-center"  ng-click="openLockedPopup()">
+                Income Tax Topics &nbsp;<i style="font-size:larger;" class="icon ion-locked" class="locked"></i>
+              </div>
+            </ion-item>
+    
+        </ion-list>
+  </ion-content>
+</ion-view>

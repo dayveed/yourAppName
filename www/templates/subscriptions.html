@@ -1,0 +1,42 @@
+<ion-view view-title="Welcome" drag-content="false">
+
+
+
+
+
+
+  <ion-content class="" scrollbar-y="false">
+  
+
+
+    <div class="" style="text-align:center; box-shadow: none;width: 100%; padding:15px">
+        <div >
+          <h3>Welcome to the hApp-e-tax app!</h3>
+          <p>Please select one of the options below.</p>
+          <p>The next screen is NOT the check-out screen - you will be able to return to this screen.</p>
+          <p>If your employer has a Corporate Subscription, tap on the "VIP:  Corporate Subscription" button.</p>
+          <button ng-if="vatSubscriptionValid" ng-click="goToProductPage('app.welcomeIncome')" class="button button-block button-balanced subscription-button ita-button" style="background-color:#ddebf7; color: #212121">
+            Income Tax App
+          </button>
+          <p class="more-details" ng-if="vatSubscriptionValid" ng-click="openDetailsPopup('income')">More Details</p>
+          <br>
+          <button ng-if="incomeSubscriptionValid" ng-click="goToProductPage('app.welcomeVAT')" class="button button-block button-balanced subscription-button bar-income" style="background-color:#bdd7ee; color: #212121">
+            VAT and Indirect Taxes App
+          </button>
+          <p class="more-details" ng-if="incomeSubscriptionValid" ng-click="openDetailsPopup('vat')">More Details</p>
+          <br>
+          
+          <br>
+          <button  ng-click="goToProductPage('app.welcomeCorporate')" class="button button-block button-balanced subscription-button ita-button" style="background-color:#ffd966; color: #212121">
+              VIP: Corporate Subscription
+            </button>
+            
+
+      </div>
+       
+      </div>
+
+    
+
+  </ion-content>
+</ion-view>

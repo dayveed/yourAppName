@@ -1,1 +1,860 @@
-/* Empty. Add your own CSS if you like */
+body {
+  font-size: 100%;
+}
+
+/*My Stocks*/
+
+#my-stocks .item-content {
+  padding: 5px 0px 5px;
+}
+
+#my-stocks h3 {
+  font-size: 4.75vmin;
+}
+
+#my-stocks h6 {
+  font-size: 3vmin;
+  font-weight: 300;
+}
+
+#my-stocks .stock-price-time {
+  padding-right: 10px;
+  text-align: right;
+}
+
+#my-stocks .stock-price-time h3 {
+  font-weight: normal;
+}
+#my-stocks .stock-change {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  margin-right: -10px;
+}
+
+#my-stocks .stock-change h3,
+#my-stocks .stock-change h6 {
+  color: #fff;
+}
+#my-stocks .inset-shadow {
+  -webkit-box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.15);
+}
+/* Search */
+
+#search {
+  background-color: rgba(20, 20, 20, 0.975);
+}
+#search .search-input {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#search input {
+  color: #fff;
+}
+
+/*News card*/
+
+#stock-news .icon {
+  color: #ccc;
+  font-size: 11pt;
+  right: 0;
+}
+#stock-news h2 {
+  font-weight: 400;
+  white-space: normal;
+}
+#stock-news p {
+  color: #222;
+  font-size: 9pt;
+  margin: 10px auto 0;
+  white-space: normal;
+}
+#stock-news .item-icon-right {
+  padding-right: 30px;
+}
+/*Notes card*/
+
+#stock-notes .add-stock-note {
+  border: 1px solid #1e88e5;
+  border-radius: 3px;
+  color: #1e88e5;
+  float: right;
+  font-size: 11pt;
+  font-weight: 300;
+  padding: 0 5px;
+}
+#stock-note-title {
+  border-bottom: 1px solid #eee;
+  padding: 0 5px;
+}
+
+#stock-note-body {
+  min-height: 100px;
+  padding: 10px 5px 5px;
+}
+
+/*Market data card*/
+
+#market-data-card {
+  font-size: 3.25vmin;
+}
+
+#market-data-card .col-20 {
+  font-weight: bolder;
+}
+#market-data-card .col-20:last-of-type {
+  text-align: right;
+}
+#market-data-card .last-trade {
+  font-size: 3vmin;
+  float: right;
+}
+/*Stock Navbar*/
+
+#stock-navbar ion-header-bar {
+  border: none;
+}
+#stock-navbar .back-text {
+  font-size: 11pt;
+}
+/*Stock Subheader Bar*/
+
+#stock-subheader-bar {
+  border-top: none;
+}
+#stock-name {
+  color: #333;
+  float: left;
+  font-size: 3.5vmin;
+  font-weight: normal;
+  margin: auto 0;
+  max-width: 33vw;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+#stock-price {
+  font-size: 7vmin;
+  line-height: 32pt;
+}
+#stock-change {
+  font-size: 4vmin;
+  font-weight: bolder;
+  float: right;
+  line-height: 12pt;
+  margin: auto 0;
+}
+/*Short button bar*/
+#short-button-bar .button {
+  line-height: normal;
+  min-height: 10px;
+  border: none;
+  border-radius: 0;
+  font-size: 9pt;
+  background-color: #fff;
+}
+#short-button-bar .button.active {
+  font-weight: bold;
+}
+#short-button-bar {
+  -webkit-box-shadow: 0px 0px 0px 1px #ddd;
+}
+
+/*Chart Styles*/
+#interactiveChart {
+  height: 80vmin;
+}
+.nv-focus .nv-barsWrap,
+.nv-focus .nv-y1 .tick,
+.nv-focus .nv-y1 .nv-axisMaxMin,
+.nv-focus .nv-y1 .domain,
+.nv-context .nv-x .nv-axisMaxMin,
+.nv-context .nv-y2 .domain,
+.nv-context .nv-y2 .nv-axisMaxMin,
+.nv-context .nv-y2 .tick {
+  display: none !important;
+}
+.nv-focus .nv-x .tick:first-of-type text,
+#interactiveChart text.nv-axisLabel {
+  text-anchor: start !important;
+}
+.nv-focus .nv-y2 .tick text,
+.nv-focus .nv-y2 .nv-axisMaxMin text,
+.nv-focus .nv-x .tick:last-of-type text,
+.nv-context .nv-y1 .tick text,
+.nv-context .nv-y1 .nv-axisMaxMin text {
+  text-anchor: end !important;
+}
+#interactiveChart svg text {
+  font-size: 3vmin !important;
+}
+
+#interactiveChart .nv-axis line {
+  stroke-dasharray: 3, 3;
+  stroke: #ddd;
+}
+#interactiveChart .nv-axis path.domain {
+  stroke-dasharray: 4, 4;
+  stroke-opacity: 0.5;
+  stroke-width: 1px;
+}
+#interactiveChart .nv-focus .domain {
+  stroke: #1e88e5;
+}
+#interactiveChart .nv-focus .nv-axisLabel,
+#interactiveChart .nv-focus .nv-axisMaxMin text {
+  fill: #1e88e5;
+}
+#interactiveChart .nv-context .domain {
+  stroke: #ff9800;
+}
+#interactiveChart .nv-context .nv-axisLabel,
+#interactiveChart .nv-context .nv-axisMaxMin text {
+  fill: #ff9800;
+}
+#interactiveChart .nv-focus .nv-y2 .tick text,
+#interactiveChart .nv-context .nv-y1 .tick text {
+  fill: #ccc;
+}
+#interactiveChart .nv-focus .nv-line {
+  stroke: #2196f3;
+  stroke-width: 2px;
+}
+#interactiveChart .nv-context .nv-line {
+  stroke: #aaa;
+  stroke-opacity: 0.75;
+  stroke-width: 1px;
+}
+#interactiveChart .nv-line {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+#interactiveChart .nv-barsWrap rect {
+  fill: #ff9800;
+  fill-opacity: 1;
+  shape-rendering: crispEdges;
+}
+#interactiveChart .nv-brushBackground rect {
+  shape-rendering: crispEdges;
+  stroke-width: 1;
+  stroke: #ccc;
+}
+
+/*Helper styles*/
+
+.display-flex {
+  display: flex !important;
+}
+.no-margin {
+  margin: 0 !important;
+}
+.font-normal {
+  font-weight: normal !important;
+}
+.border-none {
+  border: none !important;
+}
+
+.margin-auto,
+.margin-auto svg {
+  margin: auto !important;
+}
+
+.text-align-center {
+  text-align: center !important;
+}
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.color-red {
+  color: #ef473a !important;
+}
+.background-red {
+  background-color: #ef473a !important;
+}
+
+.background-green {
+  background-color: #33cd5f !important;
+}
+/*Adjustment Styles*/
+svg text {
+  font: 400 10pt "Helvetica Neue", sans-serif !important;
+}
+
+.hangingIndent {
+  padding-left: 40px;
+  text-indent: -35px;
+  display: inline-block;
+}
+.hangingIndent-1 {
+  padding-left: 40px;
+  text-indent: -40px;
+  display: inline-block;
+}
+.hangingIndent-1 {
+  padding-left: 40px;
+  text-indent: -40px;
+  display: inline-block;
+}
+.hangingIndent-2 {
+  padding-left: 40px;
+  text-indent: -45px;
+  display: inline-block;
+}
+.hangingIndent-3 {
+  padding-left: 40px;
+  text-indent: -27px;
+  display: inline-block;
+}
+.dont-break-out {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.tax-act-item {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.selectable {
+  -webkit-user-select: auto;
+}
+
+.non-selectable,
+.non-selectable p {
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
+}
+
+.popup-container .popup {
+  width: 90%;
+  border-radius: 10px;
+  background-color: lightgrey;
+}
+
+.popup-buttons .button {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.popover-header {
+  font-weight: bold;
+  display: block;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 15px 10px;
+}
+
+ion-popover-view.fit {
+  height: auto;
+}
+
+ion-popover-view.fit ion-content {
+  position: relative;
+}
+
+.platform-android ion-popover-view.fit {
+  margin-top: 10px;
+}
+
+.platform-ios ion-popover-view.fit {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#post-note-title {
+  padding: 15px;
+}
+#post-note-body {
+  height: 300px;
+  padding: 15px;
+}
+
+/* CORE */
+.item-expand {
+  position: relative;
+  width: 100%;
+  max-height: 60px;
+  transition: max-height 0.1s ease-out;
+  overflow: hidden;
+}
+
+.item-expand.inactive:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  height: 15px;
+  width: 100%;
+  display: block;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, rgba(255, 255, 255, 0)),
+    color-stop(1, rgba(255, 255, 255, 1))
+  );
+  background-image: -o-linear-gradient(
+    bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-image: -moz-linear-gradient(
+    bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-image: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-image: -ms-linear-gradient(
+    bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.item-expand.active {
+  max-height: 200px;
+  transition: max-height 0.3s ease-out;
+}
+
+/* DEMO */
+.item-expand-footer {
+  color: red;
+  margin-top: 10px;
+}
+
+.item-expand-footer i {
+  margin-right: 10px;
+}
+
+.item p {
+  font-size: inherit;
+}
+.item h1 {
+  font-size: inherit;
+}
+.item h2 {
+  font-size: inherit;
+}
+p face {
+  font-family: arial !important;
+}
+font {
+  font-family: inherit;
+}
+.highlightedText,
+.highlightedText .highlightedTextSpan,
+.highlightedText .hangingIndent {
+  background: yellow;
+}
+
+.highlightedText p {
+}
+/*canvas {width:100%}*/
+
+.spinner svg {
+  width: 50px;
+
+  height: 50px;
+}
+.field-dark {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.0625);
+  border-radius: 3px;
+  height: 36px;
+  margin: auto 5px;
+  padding-left: 12px !important;
+}
+.bg-blue {
+  background-color: white;
+  
+}
+.bg-blue a:nth-child(5) {
+  display: none;
+}
+.p2 {
+  padding: 1rem;
+}
+pdf-viewer canvas {
+  width: auto;
+  margin-left: -5vw;
+}
+pdf-viewer-toolbar input {
+  line-height: 1.75;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 2.25em;
+  padding: 0.25em 1rem;
+  -webkit-appearance: none;
+  font-size: 16px !important;
+  line-height: 42px;
+  padding: 0 12px;
+  padding-top: 0px !important;
+  display: inline-block !important;
+}
+
+span.px1 {
+  font-size: 16px;
+  line-height: 47px;
+  padding: 0 12px;
+}
+pdf-viewer-toolbar .ng-binding {
+  font-size: 16px;
+  line-height: 50px;
+}
+pdf-viewer-toolbar .button {
+  margin: 1px;
+  border-color: inherit;
+  font-size: 16px !important;
+}
+.bar-orange {
+  background-color: orange;
+}
+.bar-teal {
+  background-color: teal;
+}
+
+.bar-income {
+  background-color: #bdd7ee;
+}
+
+.bar-vat {
+  background-color: #c6e0b4;
+}
+.bar-full {
+  background-color: #f4b084;
+}
+
+.bar-corporate {
+  background-color: #ffd966;
+}
+.button-product {
+  line-height: 28px;
+
+  white-space: normal;
+}
+.button-previous {
+  background-color: #d9d9d9 !important;
+  color: #212121 !important;
+}
+.more-details {
+  color: rgb(45, 147, 182);
+  text-decoration: underline;
+}
+.lock-image {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 25%;
+}
+.locked {
+  opacity: 0.6;
+}
+.welcome-square-inner {
+  position: relative;
+}
+
+.search-modal-button {
+  margin-right: 11px;
+}
+.ammendment {
+  padding: 10px;
+}
+.ammendment ol {
+  list-style: decimal;
+}
+.platform-android textarea,
+.platform-ios textarea {
+  text-indent: -1px;
+}
+.search-radio .radio-icon {
+  padding: 12px;
+  font-size: 12px;
+}
+.search-radio .item-content {
+  padding: 8px 49px 8px 12px;
+  background: lightyellow;
+}
+.search-radio .item {
+  font-size: 13px;
+}
+.search-radio-bar {
+  padding: 0px;
+}
+.search-radio input:checked + .radio-content .item-content {
+  background: lightsteelblue;
+}
+
+.dummyInput {
+  position: fixed;
+  left: -300px;
+}
+
+.item p {
+  white-space: pre-wrap;
+}
+
+.bar-search {
+  height: 80px;
+}
+
+.bar-search input[type="text"] {
+  font-size: 18px;
+  height: 56px !important;
+  line-height: 36px;
+}
+.has-search-subheader {
+  top: 124px;
+}
+.has-search-subheader-with-notice {
+  top: 154px !important;
+}
+
+.amendmentFont {
+  font-size: 80%;
+}
+
+.pdf-controls {
+  width: 100%;
+  display: block;
+  background: #eee;
+  padding: 1em;
+  font-size: 0.7rem;
+  padding-right: 0 !important;
+}
+.fixed {
+  margin-top: 89px;
+  left: calc(50% - 480px);
+  z-index: 100;
+  width: 100%;
+  padding: 1em;
+  background: rgba(238, 238, 238, 0.9);
+}
+.pdf-controls button {
+  margin-bottom: 15px;
+  min-width: 30px;
+  min-height: 30px;
+}
+.pdf-controls input {
+  min-height: auto;
+  display: inline-block;
+  width: 45px;
+  height: 44px;
+  /* line-height: 23px; */
+  /* font-size: 15px; */
+  border: 1px solid grey;
+  padding: 0;
+  border-radius: 3px;
+  min-width: auto;
+}
+.bar-actsearch-subheader {
+  top: 44px;
+  display: block;
+  height: 75px;
+  background-color: transparent;
+  background: none;
+}
+.bar-actsearch-subheader h4 {
+  font-size: 80%;
+  display: inline-block;
+}
+.bar-actsearch-subheader button {
+  padding: 2px 4px 1px !important;
+  min-width: 28px !important;
+  min-height: 30px !important;
+  font-size: 12px !important;
+  line-height: 26px !important;
+}
+.has-actsearch-subheader {
+  top: 118px;
+}
+.item-indent {
+  text-indent: 15px;
+}
+#home-grid .col {
+  position: relative;
+  padding: 4px;
+}
+#home-grid .col:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+#home-grid .col .square {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  display: table;
+  padding: 4px;
+}
+#home-grid .col .inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+#home-grid .col {
+  min-height: 0px;
+}
+#home-grid span {
+  color: #ff0000;
+}
+#home-grid {
+  font-size: 6vw;
+  line-height: 10vw;
+  text-align: center;
+}
+
+#progress-bar:after {
+  content: attr(value) "%";
+  height: 25px;
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+#progress-bar {
+  height: 25px;
+  padding-top: 2px;
+}
+
+#progress-bar-pdf:after {
+  content: attr(value) "%";
+  height: 25px;
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+#progress-bar-pdf {
+  height: 25px;
+  padding-top: 2px;
+}
+
+#unzip-bar-pdf:after {
+  content: attr(value) "%";
+  height: 25px;
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+#unzip-bar-pdf {
+  height: 25px;
+  padding-top: 2px;
+}
+
+.popup-head {
+  border-bottom: none;
+}
+
+.bar-orange .back-button {
+  color: black;
+}
+
+p:after {
+  content: "";
+  display: inline-block;
+  width: 0px;
+}
+.post-email p {
+  padding: 10px !important;
+  font-size: 16px;
+}
+em {
+  font-style: italic;
+}
+.home-button {
+  background: transparent;
+}
+
+.button-condensed {
+  line-height: 28px;
+}
+
+.welcome-square-inner {
+  padding: 15px;
+}
+
+.bar-sub-subheader {
+  top: 88px;
+}
+
+#highlighter-card {
+  padding: 20px;
+}
+
+.highlighter-button {
+  font-size: 2.5vw;
+}
+
+.popup-buttons .button {
+  padding: 0;
+}
+
+.button-tax-legislation-update {
+  background-color: #abcf9a;
+  width: 100%;
+  font-weight: bold;
+}
+
+.button-tax-info-update {
+  background-color: #f6b69b;
+  width: 100%;
+  font-weight: bold;
+}
+
+.update-card {
+  padding: 15px;
+}
+
+.update-card i {
+  font-style: italic !important;
+}
+
+.search-notice {
+  margin-top: 50px;
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.grey-bgd-box {
+  background-color: lightgrey;
+  padding: 30px;
+  border: 1px black solid;
+}
+
+.welcome-button {
+  padding:5%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  line-height: 25px;
+}

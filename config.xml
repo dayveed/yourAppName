@@ -1,20 +1,84 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.yourappsname751495" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>yourAppsName</name>
-  <description>
-        An Ionic Framework and Cordova project.
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.kmos.happe" version="2.5.6" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>hApp-e-tax</name>
+    <description>
+        A Tax app
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+    <author email="dlandesman@gmail.com" href="http://webdevize.com/">
+      David Landesman
     </author>
-  <content src="index.html"/>
-  <access origin="*"/>
-  <preference name="webviewbounce" value="false"/>
-  <preference name="UIWebViewBounce" value="false"/>
-  <preference name="DisallowOverscroll" value="true"/>
-  <preference name="android-minSdkVersion" value="16"/>
-  <preference name="BackupWebStorage" value="none"/>
-  <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true"/>
-  </feature>
+    <content src="index.html" />
+    <access origin="*" />
+    <access origin="cdvfile://*" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="SplashScreen" value="none" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="android-targetSdkVersion" value="31" />
+    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <application android:usesCleartextTraffic="true" />
+    </edit-config>
+    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity">
+        <activity android:exported="true" />
+    </edit-config>
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <allow-navigation href="http://10.0.0.125:8100" />
+    <allow-navigation href="http://192.168.14.32:8100" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="http://192.168.56.1:8100" />
+    <allow-navigation href="http://192.168.15.2:8100" />
+    <allow-navigation href="http://192.168.14.32:8101" />
+    <allow-navigation href="http://192.168.14.192:8100" />
+    <allow-navigation href="http://192.168.14.192:8102" />
+    <allow-navigation href="http://192.168.14.192:8101" />
+    <allow-navigation href="http://192.168.101.184:8100" />
+    <platform name="android">
+        <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
+        <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
+        <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
+        <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />
+        <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png" />
+        <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png" />
+        <splash density="land-ldpi" src="resources/android/splash/drawable-land-ldpi-screen.png" />
+        <splash density="land-mdpi" src="resources/android/splash/drawable-land-mdpi-screen.png" />
+        <splash density="land-hdpi" src="resources/android/splash/drawable-land-hdpi-screen.png" />
+        <splash density="land-xhdpi" src="resources/android/splash/drawable-land-xhdpi-screen.png" />
+        <splash density="land-xxhdpi" src="resources/android/splash/drawable-land-xxhdpi-screen.png" />
+        <splash density="land-xxxhdpi" src="resources/android/splash/drawable-land-xxxhdpi-screen.png" />
+        <splash density="port-ldpi" src="resources/android/splash/drawable-port-ldpi-screen.png" />
+        <splash density="port-mdpi" src="resources/android/splash/drawable-port-mdpi-screen.png" />
+        <splash density="port-hdpi" src="resources/android/splash/drawable-port-hdpi-screen.png" />
+        <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
+        <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
+        <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+    </platform>
+    <plugin name="uk.co.workingedge.cordova.plugin.sqliteporter" spec="^1.0.0" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.3" />
+    <plugin name="cordova-clipboard" spec="^1.2.1" />
+    <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
+    <plugin name="cordova-plugin-file" spec="^6.0.2" />
+    <plugin name="cordova-plugin-network-information" spec="^2.0.2" />
+    <plugin name="cordova-plugin-file-downloader" spec="https://github.com/StudioKloek/cordova-plugin-file-downloader.git" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.4" />
+    <allow-navigation href="http://localhost:8100" sessionid="bd7c3d96" />
+    <plugin name="cordova-plugin-print-pdf" spec="^4.0.2" />
+    <plugin name="cordova-plugin-printer" spec="^0.7.3" />
+    <allow-navigation href="http://192.168.68.108:8100" sessionid="baa78b81" />
+    <allow-navigation href="http://192.168.68.108:8101" sessionid="bc985772" />
+    <allow-navigation href="http://192.168.68.108:8102" sessionid="cff65acd" />
+    <allow-navigation href="http://192.168.68.108:8103" sessionid="d73d1fae" />
+    <allow-navigation href="http://192.168.68.108:8104" sessionid="be8cf38d" />
+    <allow-navigation href="http://192.168.68.108:8105" sessionid="4e3ded46" />
+    <allow-navigation href="http://192.168.68.108:8106" sessionid="2f447f58" />
+    <allow-navigation href="http://192.168.68.108:8107" sessionid="77773fa9" />
+    <allow-navigation href="http://0.0.0.0:8100" sessionid="a31f7022" />
+    <plugin name="cordova-sqlite-ext" spec="^6.0.0" />
+    <plugin name="cordova-plugin-inapppurchase" spec="^1.2.0" />
+    <plugin name="cordova-plugin-email-composer" spec="^0.8.7" />
+    <engine name="android" spec="^8.1.0" />
 </widget>

@@ -1,0 +1,24 @@
+<ion-list can-swipe="false">
+<div ng-if="briefcases.length == 0">
+      <p >No briefcases found.</p>
+      <p>
+            Click on the button below to go to the Briefcases section to create a briefcase.
+      </p>
+      <button class="button button-positive button-small " ng-click="goToBriefcases()">Create a briefcase</button>
+</div>
+
+
+        <ion-item ng-repeat="briefcase in briefcases track by $index" class="item item-text-wrap item-button-right">
+          <div>
+
+            <h2>{{ briefcase.name }}</h2>
+
+          </div>
+
+<div class="buttons">
+                      <button ng-if="!sectionAdded[$index]" class="button button-positive button-small icon ion-plus-circled" ng-click="putSectionInBriefcase(briefcase.id,$index)"> Add Info</button>
+                     <i ng-if="sectionAdded[$index]"class="icon ion-checkmark-round"></i>
+</div>
+        </ion-item>
+
+      </ion-list>

@@ -1,0 +1,35 @@
+<ion-view view-title="VAT and Indirect Taxes">
+  <ion-nav-bar class="bar-vat">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+
+
+  <ion-content>
+    <div class="row">
+    <div class="" style="text-align:center; box-shadow: none;width: 100%">
+      <div class="item">
+        <button  ng-click="goHome()" class="button button-block button-balanced button-previous">
+          Return to previous screen
+        </button>
+        <p>Please tap on an option below - the next screen is check-out.</p>
+        <p>You can cancel your subscription at any time during your 30 day free trial.</p>
+        <p>Your credit card will NOT be charged until after your 30 day free trial expires.</p>
+        <p>All credit card payments are safe and secured by iTunes (Apple) or Google (Android).</p>
+        <p>You will be able to add “Income Tax” as an in-app purchase at a later stage (if you have not already done so).</p>
+
+        <button ng-click="subscribe(VATOnlyProduct.productId)" class="button button-block  bar-vat button-product">
+          1 year subscription to hApp-e-tax VAT and Indirect Taxes App plus 30 day free trial - {{VATOnlyProduct.price}}
+        </button>
+
+        <button ng-click="showSAITDiscount()" class="button button-block bar-vat button-product">
+          SAIT promotion (20% discount):  1 year subscription to hApp-e-tax VAT and Indirect Taxes App plus 30 day free trial - {{VATOnlyDiscountProduct.price}} (excluding 20% discount)
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+  </ion-content>
+</ion-view>

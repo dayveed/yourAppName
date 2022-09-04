@@ -1,0 +1,41 @@
+<ion-view view-title="" drag-content="false">
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+<button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button class="button icon ion-search" ng-click="modalService.openModal(1,currentLocationForSearch)">
+
+        </button>
+        <button class="button icon ion-android-more-vertical" menu-toggle="right">
+
+        </button>
+
+      </ion-nav-buttons>
+
+<div class="bar bar-subheader bar-positive" ng-style="taxActBar">
+<h2 class="title">{{taxActSinglePost.post_title}}</h2>
+</div>
+
+
+
+
+
+  <ion-content class="has-subheader" scrollbar-y="false" overflow-scroll="true">
+
+
+
+
+    <div class="card" id="market-data-card">
+
+      <div  class="item item-text-wrap selectable" bind-html-compile="taxActSinglePost.post_content" ng-style = "textStyle">
+
+
+    </div>
+
+
+
+
+  </ion-content>
+</ion-view>

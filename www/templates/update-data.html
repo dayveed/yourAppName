@@ -1,0 +1,89 @@
+<ion-view view-title="Update Data" drag-content="false">
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+
+
+<div class="bar bar-subheader bar-positive">
+    <h2 class="title">{{updateTitle}}</h2>
+
+
+</div>
+
+
+
+
+
+  <ion-content class="has-subheader" scrollbar-y="false" overflow-scroll="true">
+
+
+      <div ng-if="!emailRegistered" class="card post-email" id="market-data-card">
+          <div ng-if="!emailPosted" class="">
+            <p>
+              In order to obtain free, live updates to the legislation and other information on this App, please submit your e-mail address:
+            </p>
+            <div class = "list">
+              <div class = "item item-input-inset" style="border-bottom:none;">
+               <label class = "item item-input-wrapper">
+                  <input type = "text" ng-model="userEmail" placeholder = "Email address" />
+               </label>
+      
+      
+            </div>
+            <div class="item" style="padding:10px; border:none;    padding-top: 0;">
+              <button class = "button button-block" ng-click="updateEmail(userEmail)">Send</button>
+            </div>
+      
+          </div>
+      
+      
+      
+        </div>
+      
+          </div>
+          <div ng-if="emailPosted" class="post-email">
+              <p>
+                We've received your email address.<br /> Thank you.
+              </p>
+            </div>
+
+    <div class="card update-card" ng-hide="!emailRegistered">
+        <h4>Tax Legislation and Tax Information Update</h4>
+        <p>An update should take between 1 and 10 minutes depending on your internet connection and speed.  Please do not shut down the app until the update is complete.  In order to ensure an uninterrupted update, we recommend you keep your device connected to a charger while performing the update. We also recommend that you periodically update the app even if you have not received a notification to do so.</p>
+        
+       
+<div ng-if = "!haveUpdates" >
+    <i>Checking for updates…</i> <ion-spinner icon="dots"></ion-spinner>
+</div>
+
+  
+
+      <p style="color:red"><b>{{haveUpdates}}</b></p>
+      
+    <button ng-if="emailRegistered" class="button button-tax-info-update" ng-click="getUpdates()">Get updates</button>
+
+
+
+<div  class="downloader-progress" id ="downloader-progress" style="padding-left:5px">
+  
+  
+</div>
+<div id="unzip-percentage" style="padding-left:5px">
+  
+  
+</div>
+<p id="download-complete" style="padding-left:5px"></p>
+<!--  <button class="button button-assertive" ng-click="diagnose()">Diagnose</button>-->
+
+<img src="" id="imageElement"/>
+
+    </div>
+    
+
+
+
+
+  </ion-content>
+</ion-view>

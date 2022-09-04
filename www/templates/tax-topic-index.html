@@ -1,0 +1,48 @@
+<ion-view view-title="Tax topics" id="my-stocks">
+  <ion-nav-bar id="stock-navbar" class="bar-orange ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+      <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+
+  </ion-nav-buttons>
+
+  <ion-content class="has-subheader">
+
+    <div class="row row-center"  ng-show="!taxActCats" ng-hide="taxActCats">
+
+    </div>
+    <ion-list>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToTaxTopicList(1092,'All Tax Topics')">
+          All Tax Topics
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToTaxTopicList(1093,'Corporate Tax Topics')">
+          Corporate Tax Topics
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToTaxTopicList(1094,'International Tax Topics')">
+          International Tax Topics
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToTaxTopicList(1244,'Employees’ Tax Topics')">
+          Employees’ Tax Topics
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToTaxTopicList(1243,'Capital Gains Tax Topics')">
+          Capital Gains Tax Topics
+        </div>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

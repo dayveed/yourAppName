@@ -1,0 +1,79 @@
+
+<ion-view view-title="" drag-content="false">
+
+
+    <ion-nav-buttons side="left">
+          <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+          <button ng-if="fullSubscriptionValid || incomeSubscriptionValid" class="button" ng-click="goToSinglePost(17,597)">ITA Index</button>
+          <!-- <button class="button" ng-click="goToSinglePost(5481,598)">TAA Index</button> -->
+          <button ng-if="fullSubscriptionValid || vatSubscriptionValid" class="button" ng-click="goToSinglePost(13116,1525)">VAT Index</button>
+
+
+          <!--<button class="button button-icon icon ion-arrow-right" ng-click="goToNextView()"><i class="icon ion-arrow-right-c" ></i></button>-->
+    </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+          <button class="button icon ion-search" ng-click="modalService.openModal(1,currentLocationForSearch)">
+
+          </button>
+          <button class="button icon ion-android-more-vertical" menu-toggle="right">
+
+          </button>
+
+        </ion-nav-buttons>
+
+<div class="bar bar-subheader bar-positive" ng-style="taxActBar">
+<h2 class="title"ng-style="taxActBarTitle" >{{catName}}</h2>
+</div>
+
+
+
+  <ion-content class="has-subheader has-header" scrollbar-y="false" overflow-scroll="true" delegate-handle="myPageDelegate" ng-click="logger('bob')" id="mainContent" >
+<input type="text" id="dummyInput-{{variableID}}" class="dummyInput">
+
+
+    <!--<div id="spinner" class="row row-center" ng-show="!showPosts" ng-hide="showPosts">
+      <div class="col">
+        <ion-spinner class="spinner-dark margin-auto spinner-energized" icon="spiral"></ion-spinner>
+      </div>
+    </div>-->
+<button class="button button-full" ng-click ="addItemsToTop()" ng-show="beginTermIndex >=10" ng-hide="beginTermIndex < 10"><b>Load more</b></button>
+
+  <div id="content-{{variableID}}">
+
+<div id="term-{{variableID}}-{{$index}}" term-id="{{term.term_id}}" class="card selectable"  ng-repeat="term in taxActTermsData  | limitTo:numberOfPosts:beginTermIndex track by $index">
+
+  <ion-item class="item item-button-right" style="min-height:50px;">
+<span  ng-if="getTermPosts(term.term_id).length == 0">{{term.name}}</span>
+<div class="buttons"  >
+    <button class="button button-positive icon ion-more" ng-click="openPopover($event,term.term_id,term.name,'category')"></button>
+</div>
+  </ion-item>
+
+<div id="post-{{variableID}}-{{post.ID}}" post-id="{{post.ID}}" class="item tax-act-item item-text-wrap selectable" style="white-space: normal;border:none"  ng-style = "textStyle" ng-repeat="post in getTermPosts(term.term_id) track by $index" class="selectable" >
+
+<button ng-if="term.term_id == 39 || term.term_id == 80 || term.term_id == 35" class="button button-positive button-small icon  ion-more" ng-click="openPopover($event,post.ID,post.post_title,'post')" style="float:right"></button>
+<button ng-if="term.term_id == 934 || term.term_id == 10 || term.term_id == 1527 || term.term_id == 1630" class="button button-positive button-small icon  ion-more" ng-click="openPopover($event,post.ID,post.post_title,'definition')" style="float:right"></button>
+
+<div bind-html-compile="post.post_content" >
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div id="test">
+
+</div>
+</div>
+<ion-infinite-scroll on-infinite="addMoreItems()" ng-if="taxActTermsData.length > numberOfPosts"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view view-title="Corporate Subscriptions">
+  <ion-nav-bar class="bar-corporate">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+
+
+  <ion-content>
+
+    <div class="card">
+      <div class="item">
+        <button  ng-click="goHome()" class="button button-block button-balanced button-previous">
+          Return to previous screen
+        </button>
+        <p>If your employer has purchased a Corporate Subscription on your behalf, then:</p>
+        <p>You will have received an e-mail informing you which Corporate Subcription option to choose.</p>
+        <p>You will be asked to provide your work e-mail address in the next screen.</p>
+        <p>You will NOT be required to pay for your Corporate Subscription to the app.</p>
+
+
+        <button ng-if="!incomeSubscriptionValid" ng-click="showCorporate('income')" class="button button-block bar-corporate button-product">
+                1 year Corporate Subscription to hApp-e-tax Income Tax App.
+        </button>
+
+        <button ng-if="!vatSubscriptionValid" ng-click="showCorporate('vat')" class="button button-block bar-corporate button-product">
+                1 year Corporate Subscription to hApp-e-tax VAT and Indirect Taxes App.
+        </button>
+
+        <button ng-if="!vatSubscriptionValid && !incomeSubscriptionValid && !fullSubscriptionValid" ng-click="showCorporate('full')" class="button button-block bar-corporate button-product">
+                1 year Corporate Subscription to hApp-e-tax Income Tax, VAT and Indirect Taxes App.
+        </button>
+
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>

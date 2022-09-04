@@ -1,0 +1,117 @@
+<ion-view view-title="Interpretation Notes and SARS Guides – Index" id="my-stocks">
+  <ion-nav-bar id="stock-navbar" class=" ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="modalService.openModal(1)">
+      <i class="icon icon-small ion-ios-search"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-subheader">
+
+    <div class="row row-center"  ng-show="!dtas" ng-hide="dtas">
+      <div class="col">
+        <ion-spinner class="spinner-dark margin-auto" icon="ripple"></ion-spinner>
+      </div>
+    </div>
+     <ion-list ng-if="fullSubscriptionValid || (incomeSubscriptionValid && vatSubscriptionValid)">
+      
+      <ion-item>
+        <h1 style="font-weight: bold;">SARS Interpretation Notes</h1>
+      </ion-item>
+      <ion-item>
+          <div class="row row-center"  ng-click="goToITAIN(1010,'Income Tax Interpretation Notes')">
+            Income Tax Interpretation Notes
+          </div>
+        </ion-item>
+        <ion-item>
+          <div class="row row-center"  ng-click="goToITAPN(1011,'Income Tax Practice Notes')">
+            Income Tax Practice Notes
+          </div>
+        </ion-item>
+        <ion-item>
+          <div class="row row-center"  ng-click="goToVATIN(1917,'Income Tax Interpretation Notes')">
+            VAT Interpretation Notes
+          </div>
+        </ion-item>
+        <ion-item>
+          <h1 style="font-weight: bold;">SARS Guides</h1>
+        </ion-item>
+        <ion-item ng-repeat="SG in SGs | filter:searchText" >
+  
+          <div class="row row-center" ng-bind-html="SG.name" ng-click="goToSG(SG.term_id,SG.name)">
+  
+  
+          </div>
+  
+  
+        </ion-item>
+      </ion-list>
+
+      <ion-list ng-if="incomeSubscriptionValid && !fullSubscriptionValid && !vatSubscriptionValid">
+          
+        <ion-item>
+          <h1 style="font-weight: bold;">SARS Interpretation Notes</h1>
+        </ion-item>
+          <ion-item>
+            <div class="row row-center"  ng-click="goToITAIN(1010,'Income Tax Interpretation Notes')">
+              Income Tax Interpretation Notes
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="row row-center"  ng-click="goToITAPN(1011,'Income Tax Practice Notes')">
+              Income Tax Practice Notes
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="row row-center"  ng-click="openLockedPopup()">
+              VAT Interpretation Notes &nbsp;<i style="font-size:larger;" class="icon ion-locked" class="locked"></i>
+            </div>
+          </ion-item>
+          <ion-item>
+            <h1 style="font-weight: bold;">SARS Guides</h1>
+          </ion-item>
+          <ion-item>
+            <div class="row row-center"  ng-click="goToSG()">
+              SARS Comprehensive Guide to Capital Gains Tax
+            </div>
+          </ion-item>
+        </ion-list>
+
+        <ion-list ng-if="!fullSubscriptionValid && !incomeSubscriptionValid && vatSubscriptionValid">
+         
+          <ion-item>
+            <h1 style="font-weight: bold;">SARS Interpretation Notes</h1>
+          </ion-item>
+            <ion-item>
+              <div class="row row-center"  ng-click="goToVATIN(1917,'Income Tax Interpretation Notes')">
+                VAT Interpretation Notes
+              </div>
+            </ion-item>
+            <ion-item>
+                <div class="row row-center"  ng-click="openLockedPopup()">
+                  Income Tax Interpretation Notes &nbsp;<i style="font-size:larger;" class="icon ion-locked" class="locked"></i>
+                </div>
+              </ion-item>
+              <ion-item>
+                <div class="row row-center"  ng-click="openLockedPopup()">
+                  Income Tax Practice Notes &nbsp;<i style="font-size:larger;" class="icon ion-locked" class="locked"></i>
+                </div>
+              </ion-item>
+              <ion-item>
+                <h1 style="font-weight: bold;">SARS Guides</h1>
+              </ion-item>
+              <ion-item>
+                <div class="row row-center"  ng-click="goToSG()">
+                  SARS Comprehensive Guide to Capital Gains Tax
+                </div>
+              </ion-item>  
+          </ion-list>
+  </ion-content>
+</ion-view>

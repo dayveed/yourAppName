@@ -1,0 +1,88 @@
+  <ion-view view-title="{{topicName}}" drag-content="false">
+
+  <ion-nav-bar id="stock-navbar" class="ng-style:reactiveColor" >
+    <ion-nav-back-button style="color: black;"></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+<button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+
+
+
+
+  <ion-content class="has-subheader" scrollbar-y="false">
+    <div ng-if="taxTopicItems.length > 0" class="card" id="stock-notes">
+      <div class="item item-divider">Definitions</div>
+      <a class="item" ng-repeat="section in taxTopicItems track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+        <h2>{{section.post_title}}</h2>
+        <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteSectionFromBriefcase(section.item_id,$index,briefcaseDefinitions)" ion-stop-event="click"></button>
+      </a>
+    </div>
+      <div ng-if="taxTopicITAItems.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Income Tax Act</div>
+        <a class="item item-icon-right" ng-repeat="section in taxTopicITAItems track by $index" ng-click="goToSection(section.ID,section.collection)">
+          <h2>{{section.post_title}}</h2>
+        </a>
+      </div>
+      <div  ng-if="taxTopicParagraphs.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Paragraphs of Schedules</div>
+        <a class="item item-icon-right" ng-repeat="section in taxTopicParagraphs track by $index" ng-click="goToSection(section.ID,section.collection)">
+          <h2>{{section.post_title}}</h2>
+
+        </a>
+      </div>
+      <div ng-if="taxTopicTAAItems.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Tax Administration Act</div>
+        <a class="item item-icon-right" ng-repeat="section in taxTopicTAAItems track by $index" ng-click="goToSection(section.item_id,section.item_type)">
+          <h2>{{section.post_title}}</h2>
+
+
+        </a>
+      </div>
+      <div ng-if="taxTopicVATItems.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">VAT Act</div>
+        <a class="item item-icon-right" ng-repeat="section in taxTopicVATItems track by $index" ng-click="goToSection(section.ID,section.collection)">
+          <h2>{{section.post_title}}</h2>
+
+
+        </a>
+      </div>
+      <div ng-if="taxTopicCustomsItems.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Customs and Excise Act</div>
+        <a class="item item-icon-right" ng-repeat="section in taxTopicCustomsItems track by $index" ng-click="goToSection(section.ID,section.collection)">
+          <h2>{{section.post_title}}</h2>
+
+
+        </a>
+      </div>
+      <div ng-if="taxTopicEstateItems.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Estate Duty Act</div>
+        <a class="item item-icon-right" ng-repeat="section in taxTopicEstateItems track by $index" ng-click="goToSection(section.ID,section.collection)">
+          <h2>{{section.post_title}}</h2>
+
+
+        </a>
+      </div>
+      <div ng-if="taxTopicTransferItems.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Transfer Duty  Act</div>
+        <a class="item item-icon-right" ng-repeat="section in taxTopicTransferItems track by $index" ng-click="goToSection(section.ID,section.collection)">
+          <h2>{{section.post_title}}</h2>
+
+
+        </a>
+      </div>
+      <div ng-if="taxTopicOtherItems.length > 0" class="card" id="stock-notes">
+        <div class="item item-divider">Other Information</div>
+        <a class="item item-icon-right" ng-repeat="other in taxTopicOtherItems track by $index" ng-click="goToOther(other.ID,other.post_title,other.collection)">
+          <h2>{{other.post_title}}</h2>
+
+
+        </a>
+      </div>
+
+
+
+    </ion-content>
+  </ion-view>

@@ -1,0 +1,44 @@
+<ion-view view-title="My Briefcases" id="briefcases-index">
+  <ion-nav-bar id="stock-navbar" class="bar-orange ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+
+  </ion-nav-buttons>
+
+
+  <ion-content class="">
+    <div style="padding: 15px">
+    <p>Create briefcases for specific assignments, opinions, client projects, client meetings, etc.</p>
+    <p>Add relevant sections of tax legislation to your briefcase.</p>
+    <p>Add relevant tax information (e.g. SARS Interpretation Notes, Published Rulings or DTAs) to your briefcase.</p>
+    <p>Add detailed notes and diagrams to your briefcase.</p>
+    <p><b>Confidentiality:</b>  Briefcases cannot be accessed by hApp-e-tax or any other party.  All details contained in your briefcases are stored and secured in your phone’s memory and can only be accessed by you.</p>
+ 
+    <button class="button bar-orange" ng-click="addNewBriefcase()" style="font-weight:bold; width:100%"><i style="font-size:larger; " class="icon ion-briefcase"></i> Add a new briefcase</button>
+<!--<button class="button button-assertive" ng-click="clearBriefcases()">Clear briefcases</button>-->
+</div>
+    <div class="row row-center"  ng-show="!briefcases" ng-hide="briefcases">
+      <div class="col">
+        <ion-spinner class="spinner-dark margin-auto" icon="ripple"></ion-spinner>
+      </div>
+    </div>
+<ion-list>
+      <ion-item class="item item-button-right" ng-repeat="briefcase in briefcases track by $index" ng-click="goToBriefcase(briefcase.id,briefcase.name)">
+
+        <h2 class="" style="display:inline-block" ng-bind-html="briefcase.name"  >
+
+
+        </h2>
+
+        <div class="buttons"  >
+                              <button class="button button-stable button-small icon ion-edit" ng-click="editBriefcase(briefcase.id,briefcase.name)" ion-stop-event="click"></button>
+                              <button class="button button-assertive button-small icon ion-trash-a" ng-click="deleteBriefcase(briefcase.id,$index)" ion-stop-event="click"></button>
+        </div>
+      </ion-item>
+</ion-list>
+  </ion-content>
+</ion-view>

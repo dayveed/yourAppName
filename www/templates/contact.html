@@ -1,0 +1,34 @@
+<ion-view view-title="Contact" id="my-stocks">
+  <ion-nav-bar id="stock-navbar" class="bar-teal ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+<button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+
+
+  <ion-content class="has-subheader">
+
+
+    <ion-list>
+      <ion-item>
+        <div class="row row-center"  >
+          General Enquiries: &nbsp;  <a href="mailto:info@hApp-e-tax.co.za" ng-click="emailContactDetails('info@hApp-e-tax.co.za','Contact from Happ-e-tax')"> info@hApp-e-tax.co.za</a>
+        </div>
+      </ion-item>
+     
+      <ion-item>
+          <div class="row row-center"  >
+          Corporate Subscriptions: &nbsp; <a href="mailto:josh.braun@hApp-e-tax.co.za" ng-click="emailContactDetails('josh.braun@hApp-e-tax.co.za','Contact from Happ-e-tax')"> josh.braun@hApp-e-tax.co.za</a>
+          </div>
+        </ion-item>
+      <ion-item>
+        <div class="row row-center"  ng-click="socialShare('hApp-e-Tax','test','testfile','testlink')">
+        Share this app
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

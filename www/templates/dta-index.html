@@ -1,0 +1,36 @@
+<ion-view view-title="DTA Index" id="my-stocks">
+  <ion-nav-bar id="stock-navbar" class="bar-teal ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+<button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="modalService.openModal(1)">
+      <i class="icon icon-small ion-ios-search"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-subheader">
+
+    <div class="row row-center"  ng-show="!dtas" ng-hide="dtas">
+      <div class="col">
+        <ion-spinner class="spinner-dark margin-auto" icon="ripple"></ion-spinner>
+      </div>
+    </div>
+    <ion-list>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToDTAList(937,'African Double Taxation Agreements')">
+          African Double Taxation Agreements
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToDTAList(938,'Ex-Africa Double Taxation Agreements')">
+          Ex-Africa Double Taxation Agreements
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

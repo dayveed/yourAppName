@@ -1,0 +1,24 @@
+<div class="card" style="padding:15px">
+  <p>
+    Please enter your work e-mail address:
+  </p>
+  <div class = "list">
+  
+   <label class = "item item-input item-stacked-label" style="border-bottom: 1px solid #ddd;">
+    
+      <input type = "text" placeholder = "" ng-model="corporateEmail" autocapitalize="off" />
+   </label>
+  
+  
+  </div>
+  
+      
+         <button ng-if="!corporateEmailApproved" ng-click="submitCorporateEmail(corporateEmail)" class="button button-block button-balanced button-condensed">Submit e-mail address</button>
+         <button ng-if="corporateEmailApproved"  ng-click="registerCorporateUser(corporateEmail)" class="button button-block button-positive button-condensed">
+  
+           Your corporate email address has been approved - tap to proceed to the App.
+         </button>
+         <!-- <button   ng-click="corporatePopup.close();" class="button button-block button-stable">Close</button> -->
+  
+  </div>
+  

@@ -1,0 +1,39 @@
+<ion-view view-title="Published Rulings – Index" id="my-stocks">
+  <ion-nav-bar id="stock-navbar" class=" ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+  
+  </ion-nav-buttons>
+
+  <ion-content class="has-subheader">
+
+    <div class="row row-center"  ng-show="!dtas" ng-hide="dtas">
+      <div class="col">
+        <ion-spinner class="spinner-dark margin-auto" icon="ripple"></ion-spinner>
+      </div>
+    </div>
+    <ion-list>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToITAIN(2032,'Binding Class Rulings (BCRs)')">
+          Binding Class Rulings (BCRs)
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToITAPN(2033,'Binding General Rulings (BGRs)')">
+          Binding General Rulings (BGRs)
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ng-click="goToVATIN(2034,'Binding Private Rulings (BPRs)')">
+          Binding Private Rulings (BPRs)
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,6 +1,6 @@
-<ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
+<ion-side-menus  enable-menu-with-back-views="false">
+  <ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="bar-dark">
       <ion-nav-back-button>
       </ion-nav-back-button>
 
@@ -12,24 +12,193 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+  <ion-side-menu ng-if="subscriptionCheck" side="left">
+    <ion-header-bar class="bar-dark">
+
+      <div ng-show="currentUser" class="buttons" side="left">
+
+        <button class="button" ng-click="logout()">Log Out</button>
+      </div>
+
+      <h1 class="title">Menu</h1>
     </ion-header-bar>
     <ion-content>
-      <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
+      <!-- full subsscription -->
+      <ion-list ng-if="(fullSubscriptionValid || (incomeSubscriptionValid && vatSubscriptionValid))">
+
+        <ion-item menu-close ui-sref="app.taxActPost({postID:2513,catID:597})">
+          <b>Income Tax Act (ITA)</b>
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+
+        <ion-item menu-close ui-sref="app.VATIndex()">
+          <b>VAT Act</b>
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
-          Browse
+
+        <ion-item menu-close ui-sref="app.customsIndex">
+          <b>Customs & Excise Act</b>
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
+        
+        
+        <ion-item  menu-close ui-sref="app.moreLawIndex">
+        <b>More Law</b>
         </ion-item>
+        <ion-item   menu-close ui-sref="app.SARSIndex" style="font-size: 90%;">
+          <b>Interp. Notes and SARS Guides</b>
+        </ion-item>
+        <ion-item   menu-close ui-sref="app.PRIndex">
+          <b>Published Rulings</b>
+        </ion-item>
+
+        <ion-item menu-close ui-sref="app.defintionsIndex">
+          <b>Tax Definitions</b>
+        </ion-item>
+
+
+        <ion-item   menu-close ui-sref="app.DTAIndex">
+          <b>DTAs</b>
+        </ion-item>
+
+        <ion-item menu-close ui-sref="app.briefcasesIndex">
+          <i style="font-size:larger" class="icon ion-briefcase"></i> <b>My Briefcases</b>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-list  ng-if="incomeSubscriptionValid && !fullSubscriptionValid && !vatSubscriptionValid">
+
+          <ion-item menu-close ui-sref="app.taxActPost({postID:2513,catID:597})">
+            <b>Income Tax Act (ITA)</b>
+          </ion-item>
+  
+        
+          <ion-item  menu-close ui-sref="app.moreLawIndex">
+          <b>More Law</b>
+          </ion-item>
+          <ion-item   menu-close ui-sref="app.SARSIndex">
+            <b>Interp. Notes and SARS Guides</b>
+          </ion-item>
+          <ion-item   menu-close ui-sref="app.PRIndex">
+            <b>Published Rulings</b>
+          </ion-item>
+  
+          <ion-item menu-close ui-sref="app.defintionsIndex">
+            <b>Tax Definitions</b>
+          </ion-item>
+  
+  
+          <ion-item   menu-close ui-sref="app.DTAIndex">
+            <b>DTAs</b>
+          </ion-item>
+          <ion-item menu-close ui-sref="app.briefcasesIndex">
+              <i style="font-size:larger" class="icon ion-briefcase"></i> <b>My Briefcases</b>
+            </ion-item>
+    
+          <ion-item menu-close ng-click="openLockedPopup()" class="locked">
+              <i style="font-size:larger;" class="icon ion-locked"></i> <b>VAT Act</b> 
+            </ion-item>
+    
+            <ion-item menu-close ng-click="openLockedPopup()" class="locked">
+                <i style="font-size:larger;" class="icon ion-locked"></i> <b>Customs & Excise Act</b>
+            </ion-item>
+            <ion-item menu-close ng-click="openLockedPopup()" class="locked">
+                <i style="font-size:larger;" class="icon ion-locked"></i>  <b>STT Act</b>
+            </ion-item>
+            <ion-item menu-close ng-click="openLockedPopup()" class="locked">
+                <i style="font-size:larger;" class="icon ion-locked"></i>  <b>Estate Duty Act</b>
+            </ion-item>
+            <ion-item menu-close ng-click="openLockedPopup()" class="locked">
+                <i style="font-size:larger;" class="icon ion-locked"></i> <b>Transfer Duty Act</b>
+            </ion-item>
+  
+          
+        </ion-list>
+
+        <ion-list  ng-if="!fullSubscriptionValid && !incomeSubscriptionValid && vatSubscriptionValid">  
+    
+          <ion-item menu-close ui-sref="app.VATIndex()">
+            <b>VAT Act</b>
+          </ion-item>
+    
+          <ion-item menu-close ui-sref="app.customsIndex">
+            <b>Customs & Excise Act</b>
+          </ion-item>
+            <ion-item menu-close ui-sref="app.taxActPost({postID:15540,catID:1899})">
+              <b>STT Act</b>
+            </ion-item>
+            <ion-item menu-close ui-sref="app.taxActPost({postID:15357,catID:1846})">
+              <b>Estate Duty Act</b>
+            </ion-item>
+            <ion-item menu-close ui-sref="app.taxActPost({postID:15497,catID:1876})">
+              <b>Transfer Duty Act</b>
+            </ion-item>
+            
+            <ion-item  menu-close ui-sref="app.moreLawIndex">
+            <b>More Law</b>
+            </ion-item>
+            <ion-item   menu-close ui-sref="app.SARSIndex" style="font-size: 80%;">
+              <b style="font-size: 80%;">Interp. Notes and SARS Guides</b>
+            </ion-item>
+            <ion-item   menu-close ui-sref="app.PRIndex">
+              <b>Published Rulings</b>
+            </ion-item>
+    
+            <ion-item menu-close ui-sref="app.defintionsIndex">
+              <b>Tax Definitions</b>
+            </ion-item>
+            <ion-item menu-close ui-sref="app.briefcasesIndex">
+                <i style="font-size:larger" class="icon ion-briefcase"></i> <b>My Briefcases</b>
+              </ion-item>
+      
+    
+            <ion-item menu-close ng-click="openLockedPopup()">
+                <i style="font-size:larger;" class="icon ion-locked" class="locked"></i> <b>Income Tax Act (ITA)</b>
+              </ion-item>
+            <ion-item   menu-close ng-click="openLockedPopup()">
+                <i style="font-size:larger;" class="icon ion-locked" class="locked"></i>  <b>DTAs</b>
+            </ion-item>
+    
+           
+          </ion-list>
+
+
+    </ion-content>
+  </ion-side-menu>
+
+  <ion-side-menu side="right">
+    <ion-header-bar class="bar-dark">
+
+
+
+      <h1 class="title">Settings</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list >
+        <ion-item>
+          Font Size: <br />
+          <button class="button button-small" style="vertical-align: bottom;" ng-click="changeFontSize(11)">Small</i></button>
+          <button class="button button-medium" style="vertical-align: bottom;" ng-click="changeFontSize(14)">Medium</button>
+            <button class="button button-large" ng-click="changeFontSize(18)">Large</button>
+
+        </ion-item>
+        <ion-item>
+          Contact Us: <a href="mailto:info@hApp-e-tax.co.za" ng-click="emailContactDetails('info@hApp-e-tax.co.za','Contact from Happ-e-tax')">info@hApp-e-tax.co.za</a>
+        </ion-item>
+        <ion-item ng-click="openVideoGuide()">
+      Video Guide 
+        </ion-item>
+        <ion-item menu-close ui-sref="app.showPdf({PdfID:0,PdfName:'Terms_and_conditions',PdfCollection:'other'})">
+          Terms and Conditions
+        </ion-item>
+        <ion-item menu-close ui-sref="app.OTList()">
+          Old Income Tax Legislation
+        </ion-item>
+        <ion-item menu-close ui-sref="app.updateData">
+        <b ng-if="!updatesAvailable">Check for updates</b>
+        <b ng-if="updatesAvailable" style="color:red">Updates are available</b>
+        </ion-item>
+
+
+
       </ion-list>
     </ion-content>
   </ion-side-menu>

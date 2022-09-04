@@ -1,5 +1,70 @@
-<ion-view view-title="Search">
-  <ion-content>
-    <h1>Search</h1>
-  </ion-content>
-</ion-view>
+<ion-modal-view ng-controller="SearchCtrl" id="search">
+
+<div class="bar bar-header bar-dark item-input-inset">
+
+  <div class="item-input-wrapper search-input">
+
+      <i class="ion-ios-search-strong placeholder-icon light"></i>
+
+      <input
+      autofocus
+      ng-model-options="{allowInvalid:true}"
+      type="text"
+      placeholder="Search..."
+      ng-model="searchQuery"
+      ><button class="button icon ion-search search-modal-button" ng-click="search()"></button>
+
+      <i class="icon ion-close-round" ng-click="closeModal()"></i>
+  </div>
+
+
+</div>
+<div class="bar bar-actsearch-subheader search-radio-bar">
+  <ion-list ng-if="currentLocation" class="search-radio">
+      <ion-radio ng-model="searchLocation.id" ng-value="currentLocation">Search Current Location</ion-radio>
+    <ion-radio ng-model="searchLocation.id" ng-value="0">Search Entire App</ion-radio>
+
+  </ion-list>
+<!--  <ion-item class="item-dark item-button-right" ng-if="searchQuery  && !searchResults">
+  Recent searches:
+  <button class="button bar-orange button-small"  ng-click="clearSearchTerms()">Clear recent searches</button>
+
+</ion-item> -->
+  </div>
+
+<ion-content class="has-header has-actsearch-subheader">
+
+
+
+ <ion-list ng-if="searchQuery && !searchResults">
+
+    <ion-item class="item-dark" ng-repeat="searchTerm in searchTerms" ng-click="selectRecentSearch(searchTerm)">
+        <h3 class="light"><span class="font-normal">{{searchTerm}}</span></h3>
+    </ion-item>
+  </ion-list>
+
+
+
+  <div class="row row-center" ng-show="searchQuery && searchStatus == 0" ng-hide="searchStatus ==1">
+    <div class="col">
+      <ion-spinner class="spinner-light margin-auto" icon="ripple"></ion-spinner>
+    </div>
+  </div>
+  <div class="row row-center" ng-if="searchQuery && searchResults" ng-hide="searchResults.length != 0">
+    <div class="col">
+      <h5 class="light text-align-center">No Results.</h5>
+    </div>
+  </div>
+    <ion-list>
+
+
+      <ion-item class="item-dark border-none" ng-repeat="result in searchResults" ng-click="goToPost(result.ID,searchQuery)">
+
+        <h3 class="light"><span class="font-normal" ng-bind-html="(result.term_id == 39 || result.term_id == 80|| result.term_id == 934 || result.term_id == 10 || result.term_id == 35 || result.term_id == 2) ? result.post_title : result.name"></span></h3>
+
+      </ion-item>
+    </ion-list>
+
+</ion-content>
+
+</ion-modal-view>

@@ -1,0 +1,18 @@
+
+<nav class="pdf-controls fixed">
+  <button class="button button-stable" ng-click="goPrevious()"><</span></button>&nbsp;&nbsp;
+  <button class="button button-stable" ng-click="goNext()">></span></button>&nbsp;&nbsp;
+<button class="button button-stable" ng-click="zoomOut()">-</span></button>  &nbsp;&nbsp;
+<button class="button button-stable" ng-click="fit()">100%</span></button>&nbsp;&nbsp;
+
+<button class="button button-stable" ng-click="zoomIn()">+</span></button>&nbsp;&nbsp;
+<div style="margin: 0;margin-bottom: 0px;display: inline-block;">
+  <span >Page: </span><input class="button" type="text" min=1 ng-model="pageNum"><span> / {{pageCount}}</span>
+</div>
+
+</nav>
+<ion-scroll    style="width:100%;height:78%;position:absolute;" direction="xy" overflow-scroll="false" delegate-handle="pdfCanvas">
+<div id="canvas-scroll" on-swipe-right="goPrevious()" on-swipe-left="goNext()" >
+
+</div>
+</ion-scroll>

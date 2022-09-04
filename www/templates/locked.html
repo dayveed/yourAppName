@@ -1,0 +1,34 @@
+<div ng-if="incomeSubscriptionValid && !fullSubscriptionValid && !vatSubscriptionValid" class="card" style="padding:15px">
+  <p>
+          Oops! You have tapped on a locked VAT and Indirect Taxes Add-On item. You can
+          purchase a one-year subscription to the VAT and Indirect Taxes Add-On for only R379
+          (excl. VAT). The subscription includes a free 30-day trial. The VAT and Indirect Taxes Add-On includes the following:</p>
+  
+          <p>Value-Added Tax Act, Customs and Excise Act, Securities Transfer Tax Act, Estate
+                  Duty Act, Transfer Duty Act, SARS VAT Interpretation Notes, VAT Definitions and
+                  VAT Topics.</p>
+            <p>To unlock all of the above, please tap on the button below.</p> 
+          <button   ng-click="subscribe(VATOnlyProduct.productId)" class="button button-block subscription-button bar-income">
+           VAT and Indirect Taxes Add-On
+         </button>
+         <p>For more details, contact us at: <a href="mailto:info@hApp-e-tax.co.za" ng-click="emailContactDetails('info@hApp-e-tax.co.za','Contact from Happ-e-tax')">info@hApp-e-tax.co.za</a></p>
+  
+  </div>
+  
+  <div ng-if="!fullSubscriptionValid && !incomeSubscriptionValid && vatSubscriptionValid" class="card" style="padding:15px">
+          <p>Oops! You have tapped on a locked Income Tax Add-On item. You can purchase a one-year subscription to the Income Tax Add-On for only R489 (excl. VAT). The subscription
+                  includes a free 30-day trial. The Income Tax Add-On
+                  includes the following:</p>
+          
+                  <p>Income Tax Act, SARS Income Tax Interpretation Notes and Practice Notes,
+                          Income Tax Definitions, Income Tax Topics, Double Taxation Agreements.
+                      </p>
+                    <p>To unlock all of the above, please tap on the button below.</p> 
+                  <button   ng-click="subscribe(ITAOnlyProduct.productId)" class="button button-block subscription-button bar-income">
+                   Income Tax Add-On
+                 </button>
+  
+                 <p>For more details, contact us at: <a href="mailto:info@hApp-e-tax.co.za" ng-click="emailContactDetails('info@hApp-e-tax.co.za','Contact from Happ-e-tax')">info@hApp-e-tax.co.za</a></p>
+          
+          </div>
+  

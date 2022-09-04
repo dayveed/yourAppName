@@ -1,0 +1,31 @@
+<ion-view view-title="" drag-content="false">
+
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+<button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+        <button class="button" ng-click="">Add to Briefcase</button>
+
+
+  </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+
+      </ion-nav-buttons>
+
+<div class="bar bar-subheader bar-positive">
+<h2 class="title">{{title}}</h2>
+</div>
+
+
+
+
+<ion-scroll style="width:100%;height:95%" class="has-subheader" direction="xy" overflow-scroll="true">
+      <pdf-viewer
+           delegate-handle="dta-handler"
+           url="pdfUrl"
+           scale=".8"
+           show-toolbar="true"
+
+           ></pdf-viewer>
+
+</ion-scroll>
+</ion-view>

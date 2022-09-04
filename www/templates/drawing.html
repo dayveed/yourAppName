@@ -1,0 +1,11 @@
+<ion-modal-view ng-controller="drawingCtrl">
+  <ion-header-bar>
+    <h1 class="title">Add Drawing</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeModal()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+  <canvas ng-init="popupLoaded()" id="signatureCanvas" width="300" height="180" style="border: 1px solid black;"></canvas><br><img ng-src="{{signature}}"/>
+  </ion-content>
+</ion-modal-view>

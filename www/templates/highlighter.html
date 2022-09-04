@@ -1,0 +1,19 @@
+<ion-view view-title="Contact" id="my-stocks">
+  <ion-nav-bar id="stock-navbar" class="bar-teal ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+<button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+
+
+  <ion-content class="has-subheader">
+
+
+    <div class="card">
+      <input type="text" ng-model="highlighter.title" id="post-note-title" placeholder="Title"/><br><div id="post-highlighter-body" ng-bind-html="highlighter.body" contenteditable="true" ng-model="highlighter.body"></div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,229 @@
+<ion-view view-title="Welcome" drag-content="false">
+
+  <ion-nav-buttons side="right">
+  
+    <button class="button icon ion-android-more-vertical" menu-toggle="right">
+
+    </button>
+
+  </ion-nav-buttons>
+
+
+
+
+  <ion-content class="" scrollbar-y="false" drag-content="false">
+  <div ng-if="subscriptionCheck && !initialLoad && (fullSubscriptionValid || (incomeSubscriptionValid && vatSubscriptionValid))" id="home-grid">
+    <div class = "row">
+       <div class = "col col-50"  ><div class="square"><div class="inner welcome-square-inner" style="background-color:#2d74b5;color:white;" ui-sref="app.taxActPost({postID:2513,catID:597})">Income Tax Act</div></div></div>
+       <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#c0c0c0" ui-sref="app.contact"><img style="width:90%; display:inline-block;max-width: 86%; max-width:77%" src="img/happe.png"  /></div></div></div>
+    </div>
+    <div class = "row">
+      <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#bdd6ee;color:black;" on-tap="goToVATIndex()" on-hold="goToVATAct()">VAT Act</div></div></div>
+       <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#ffc000" ui-sref="app.briefcasesIndex">My Briefcases</div></div></div>
+    </div>
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#806000;color:white;" on-tap="goToCustomsIndex()" on-hold="goToCustomsAct()">Customs & Excise Act</div></div></div>
+       <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#7a55ab;color:white;" ui-sref="app.moreLawIndex">More Law</div></div></div>
+       
+    </div>
+
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#6ce2ee" ui-sref="app.SARSIndex">Interp. Notes &<br />SARS Guides</div></div></div>
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#000000;color:white;" ui-sref="app.defintionsIndex">Tax Definitions</div></div></div>
+  
+      </div>
+    <div class="row">
+
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#c45911;color:white;" ui-sref="app.PRIndex">Published Rulings</div></div></div>
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#52ae96;" ui-sref="app.DTAIndex">DTAs</div></div></div>
+    </div>
+    
+
+  
+</div>
+
+<div ng-if="subscriptionCheck && !initialLoad && incomeSubscriptionValid && !fullSubscriptionValid && !vatSubscriptionValid" id="home-grid">
+    <div class = "row">
+       <div class = "col col-50"  ><div class="square"><div class="inner welcome-square-inner" style="background-color:#2d74b5;color:white;" ui-sref="app.taxActPost({postID:2513,catID:597})">Income Tax Act</div></div></div>
+       <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#c0c0c0" ui-sref="app.contact"><img style="width:90%; display:inline-block;max-width: 86%; max-width:77%" src="img/happe.png"  /></div></div></div>
+    </div>
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#6ce2ee" ui-sref="app.SARSIndex">Interp. Notes &<br />SARS Guides</div></div></div>
+      
+       <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#ffc000" ui-sref="app.briefcasesIndex">My Briefcases</div></div></div>
+    </div>
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#c45911;color:white;" ui-sref="app.PRIndex">Published Rulings</div></div></div>
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#000000;color:white;" ui-sref="app.defintionsIndex">Tax Definitions</div></div></div>
+        
+       
+       
+    </div>
+
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#7a55ab;color:white;" ui-sref="app.moreLawIndex">More Law</div></div></div>
+       
+  
+      </div>
+    <div class="row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#52ae96;" ui-sref="app.DTAIndex">DTAs</div></div></div>
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#bdd6ee;color:black; opacity: 0.5;" ng-click="openLockedPopup()" >VAT Act<img class="lock-image" src="img/lock.png" /></div></div></div>
+        
+        
+    </div>
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#806000;color:white;opacity: 0.5;" ng-click="openLockedPopup()">Customs & Excise Act<img class="lock-image" src="img/lock.png" /></div></div></div>
+      
+      
+
+    </div>
+    <div class = "row">
+       
+
+    </div>
+    
+
+</div>
+
+<div ng-if="subscriptionCheck && !initialLoad && !fullSubscriptionValid && !incomeSubscriptionValid && vatSubscriptionValid" id="home-grid">
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#bdd6ee;color:black;" on-tap="goToVATIndex()" on-hold="goToVATAct()">VAT Act</div></div></div>
+       
+       <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#c0c0c0" ui-sref="app.contact"><img style="width:90%; display:inline-block;max-width: 86%;max-width:77%" src="img/happe.png"  /></div></div></div>
+    </div>
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#806000;color:white;" on-tap="goToCustomsIndex()" on-hold="goToCustomsAct()">Customs & Excise Act</div></div></div>
+       <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#ffc000" ui-sref="app.briefcasesIndex">My Briefcases</div></div></div>
+    </div>
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#6ce2ee" ui-sref="app.SARSIndex">Interp. Notes &<br />SARS Guides</div></div></div>
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#000000;color:white;opacity: 0.5;" ui-sref="app.defintionsIndex">Tax Definitions</div></div></div>
+  
+       
+       
+    </div>
+
+    <div class = "row">
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#c45911;color:white;" ui-sref="app.PRIndex">Published Rulings</div></div></div>
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#7a55ab;color:white;" ui-sref="app.moreLawIndex">More Law</div></div></div>
+      </div>
+  
+    <div class = "row">
+        <div class = "col col-50"  ><div class="square"><div class="inner welcome-square-inner" style="background-color:#2d74b5;color:white;opacity: 0.5;" ng-click="openLockedPopup()">Income Tax Act<img class="lock-image" src="img/lock.png" /></div></div></div>
+        <div class = "col col-50" ><div class="square"><div class="inner welcome-square-inner" style="background-color:#52ae96;opacity: 0.5;" ng-click="openLockedPopup()">DTAs<img class="lock-image" src="img/lock.png" /></div></div></div>
+      </div>
+<!-- 
+  <button  class="button button-block button-balanced" ng-click="deleteLocalSubscription()">
+           <i class="ion-arrow-down-c" ></i> Delete local subscriptions
+        </button> -->
+</div>
+
+  <div ng-if="!subscriptionCheck && !initialLoad"  class = "row">
+    <div class="card" style="text-align:center; box-shadow: none;width: 100%">
+        <div >
+          <h3>Welcome to the hApp-e-tax app!</h3>
+          <p>Want to try before you buy?</p>
+          <p>Tap the green button below for a 30 day free trial - no credit card or personal details required!</p>
+          <p>To purchase a one year subscription via the App Store ({{fullProduct.price}} - excl. VAT), please tap on the orange button below.</p>
+          
+          <p>If your employer has purchased or renewed a Corporate Subscription on your behalf, tap on the “VIP:  Corporate Subscriptions or Renewals” button below.</p>
+          <p>To obtain a Corporate Subscription or to find out more details about our great discounts (including discounts on Mobile App and Laptop combo deals), please contact us at <a href="mailto:info@hApp-e-tax.co.za" ng-click="emailContactDetails('info@hApp-e-tax.co.za','Contact from Happ-e-tax')">info@hApp-e-tax.co.za</a> or visit our webpage at <a href="#" ng-click="goToWebsite()">www.hApp-e-tax.co.za</a>.  </p>
+          <!-- <button ng-click="subscribe(ITAOnlyProduct.productId)" class="button button-block  bar-income button-product">
+            1 year subscription to hApp-e-tax Income Tax App plus 30 day free trial - {{ITAOnlyProduct.price}}
+          </button>
+          <p class="more-details" ng-click="openDetailsPopup('income')">More Details</p>
+          <br>
+          <button ng-click="subscribe(VATOnlyProduct.productId)" class="button button-block  bar-vat button-product">
+            1 year subscription to hApp-e-tax VAT and Indirect Taxes App plus 30 day free trial - {{VATOnlyProduct.price}}
+          </button>
+  
+          <p class="more-details" ng-click="openDetailsPopup('vat')">More Details</p>
+          <br> -->
+          
+          <div style="padding:5%">
+          <button  ng-click="submitTrial()" class="button button-block button-balanced subscription-button ita-button welcome-button" style="background-color:#9bd3c4; color: #212121">
+            Tap to start a 30 day free trial.  No credit card or personal details required!
+            </button>
+            <br><br>
+          <button ng-click="subscribe(fullProduct.productId)" class="button button-block welcome-button  bar-full button-product">
+            Tap to purchase a 1 year subscription to the hApp-e-tax App via the App Store - {{fullProduct.price}} (excl. VAT).
+        </button>
+          <p class="more-details" ng-click="openDetailsPopup('full')">More Details</p>
+          <br>
+          <button  ng-click="showCorporate('full')" class="button button-block button-balanced subscription-button ita-button welcome-button" style="background-color:#ffd966; color: #212121">
+            VIP:  Corporate Subscriptions or Renewals
+            </button>
+            <p class="more-details" ng-click="openDetailsPopup('corporate')">More Details</p>
+          </div>
+      </div>
+        
+
+
+<!-- 
+          <div ng-show="products">
+          <h3>
+            Thank you for subscribing to this hApp-e-tax App!
+          </h3>
+          <p>
+            You are entitled to a 30 day, no-obligation totally free trial.
+          </p>
+          <p>
+            In order to access ALL the contents of this App, please click on the button below.
+            Your credit card will NOT be charged for the duration of your free trial.
+          </p>
+          <p>
+             If you do not cancel your subscription to this App during your free trial, your credit card will be automatically charged after 30 days.
+          </p>
+
+
+                </p>
+
+                      <button ng-repeat="product in products" ng-click="subscribe(product.productId)" class="button button-block button-positive button-condensed">
+                        {{product.title}} - {{product.price}}
+                      </button>
+
+
+         
+                      <button  class="button button-block button-balanced" ng-click="saveEmail()">
+                        <i class="ion-arrow-down-c" ></i> Email test
+                      </button>
+         
+              <div ng-show="products">
+
+               <button ng-click="showSAITDiscount()" class="button button-block button-balanced">SAIT membership promotion discount</button>
+
+               <h3>Corporate Subscriptions</h3>
+               <p>If your company has paid for a subscription on your behalf, please tap on the “Corporate Subscriptions” button below.</p>
+               <button ng-click="showCorporate()" class="button button-block button-balanced">Corporate Subscriptions</button>
+
+             </div>
+          </div> -->
+      </div>
+
+    </div>
+
+    <div class="card" ng-if="initialLoad"  style="padding:20px">
+    Loading...
+      <ion-spinner icon="dots" class="spinner-calm"></ion-spinner>
+    </div>
+    <!-- <button  class="button button-block button-balanced" ng-click="openPaywall()">
+        <i class="ion-arrow-down-c" ></i> Unlock full app
+     </button>
+     <button  class="button button-block button-balanced" ng-click="openPaywallIncome()">
+        <i class="ion-arrow-down-c" ></i> Unlock Income
+     </button>
+     <button  class="button button-block button-balanced" ng-click="openPaywallVat()">
+        <i class="ion-arrow-down-c" ></i> Unlock VAT
+     </button> 
+     <button  class="button button-block button-balanced" ng-click="getLocalDbSubscriptions()">
+      <i class="ion-arrow-down-c" ></i> Get db subscription and email
+   </button>
+   <button  class="button button-block button-balanced" ng-click="changeLocalDbSubscription()">
+    <i class="ion-arrow-down-c" ></i> Change local DB subscritions
+ </button>
+ <button  class="button button-block button-balanced" ng-click="deleteLocalSubscription()">
+  <i class="ion-arrow-down-c" ></i> delete local DB subscritions
+</button>
+ -->
+  </ion-content>
+</ion-view>

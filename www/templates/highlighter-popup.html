@@ -1,0 +1,9 @@
+
+<div class="card" id="highlighter-card" >
+
+<div id="post-{{variableID}}-{{post.ID}}" post-id="{{post.ID}}"  ng-repeat="post in getTermPosts(popoverTermID) track by $index" class="selectable">
+
+<div bind-html-compile="post.post_content"></div>
+</div>
+
+</div>

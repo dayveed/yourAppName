@@ -1,0 +1,90 @@
+<ion-view view-title="Definitions Index" id="my-stocks">
+  <ion-nav-bar id="stock-navbar" class="ng-style:reactiveColor" >
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+        <button class="button home-button" ng-click="goHome()"><i class="icon ion-home"></i></button>
+
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="modalService.openModal(1)">
+      <i class="icon icon-small ion-ios-search"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-subheader">
+
+
+      <ion-list ng-if="fullSubscriptionValid || (incomeSubscriptionValid && vatSubscriptionValid)">
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.definitions({parentID:2,parentName:'ITA Definitions',collectionID:597})">
+          Income Tax Act Definitions
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.definitions({parentID:1526,parentName:'VAT Definitions',collectionID:1525})">
+          VAT Act Definitions
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.definitions({parentID:1840,parentName:'Customs and Excise Definitions',collectionID:1627})">
+          Customs and Excise Act Definitions
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="row row-center"  ui-sref="app.definitions({parentID:934,parentName:'TAA Definitions',collectionID:598})">
+          Tax Administration Act Definitions
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list ng-if="incomeSubscriptionValid && !fullSubscriptionValid && !vatSubscriptionValid">
+        <ion-item>
+          <div class="row row-center"  ui-sref="app.definitions({parentID:2,parentName:'ITA Definitions',collectionID:597})">
+            Income Tax Act Definitions
+          </div>
+        </ion-item>
+        
+        <ion-item>
+          <div class="row row-center"  ui-sref="app.definitions({parentID:934,parentName:'TAA Definitions',collectionID:598})">
+            Tax Administration Act Definitions
+          </div>
+        </ion-item>
+        <ion-item>
+          <div class="row row-center"  ng-click="openLockedPopup()">
+            VAT Act Definitions &nbsp;<i style="font-size:larger;" class="icon ion-locked" class="locked"></i>
+          </div>
+        </ion-item>
+        <ion-item>
+          <div class="row row-center"  ng-click="openLockedPopup()">
+            Customs and Excise Act Definitions &nbsp;<i style="font-size:larger;" class="icon ion-locked" class="locked"></i>
+          </div>
+        </ion-item>
+      </ion-list>
+
+      <ion-list ng-if="!fullSubscriptionValid && !incomeSubscriptionValid && vatSubscriptionValid">
+          
+          <ion-item>
+            <div class="row row-center"  ui-sref="app.definitions({parentID:1526,parentName:'VAT Definitions',collectionID:1525})">
+              VAT Act Definitions
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="row row-center"  ui-sref="app.definitions({parentID:1840,parentName:'Customs and Excise Definitions',collectionID:1627})">
+              Customs and Excise Act Definitions
+            </div>
+          </ion-item>
+          <ion-item>
+            <div class="row row-center"  ui-sref="app.definitions({parentID:934,parentName:'TAA Definitions',collectionID:598})">
+              Tax Administration Act Definitions
+            </div>
+          </ion-item>
+          <ion-item>
+              <div class="row row-center"  ng-click="openLockedPopup()">
+                Income Tax Act Definitions &nbsp;<i style="font-size:larger;" class="icon ion-locked" class="locked"></i>
+              </div>
+            </ion-item>
+        </ion-list>
+  </ion-content>
+</ion-view>

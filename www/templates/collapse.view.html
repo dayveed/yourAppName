@@ -1,0 +1,20 @@
+<div class="list card padding-bottom">
+  <div class="item collHeader">
+    <div class="row" ng-click="$ctrl.showHide()">
+      <div class="col col-20">
+        <div class="leftHeader">
+          <span>{{$ctrl.leftHeaderIdentifier}}</span>
+        </div>
+      </div>
+      <div class="col col-67" style="text-align: left">
+        <h2>  <i class="icon" ng-class="$ctrl.headerIcon"></i> {{$ctrl.title}}</h2>
+      </div>
+      <div class="col col-10">
+        <button  class="button icon  button-small button-positive" ng-class="{'ion-plus-round':!$ctrl.showHideFlag,'ion-minus-round':$ctrl.showHideFlag}" style="float:right"></button>
+      </div>
+    </div>
+  </div>
+  <div class="item item-body" ng-show="$ctrl.showHideFlag">
+     <div ng-transclude></div>
+  </div>
+</div>
